@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script> 
+<script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
+<script type = "text/babel">
+    const root = document.getElementById("root");
+    //const Title = <h3 id = "title" onMouseEneter={()=> console.log( "mouse Enter")}>Hello I'm a title</h3>
+    //const Btn = <button style={{backgroundColor : "tomato" }} onClick={()=> console.log("i'm clicked")}> clicked </button>
+    const Title = () => (
+        <h3 id = "title" onMouseEnter={()=> console.log("mouse Enter")}>
+            Hello I'm a title
+        </h3>
+    );
+    const Btn = () => (
+        <button style={{backgroundColor : "tomato" }} onClick={()=> console.log("i'm clicked")}> 
+            clicked 
+        </button>
+    )
+    const Container = () => (
+        <div>
+            <Title/>
+            <Btn/>
+        </div>
+    ) 
+    //const container = React.createElement("div" , null , [span, btn]);
+    ReactDOM.render(<Container/>, root);
+</script>
+</html>
+
+<!--
+    JSX : HTML의 태그와 매우 유사하게 생김 , 컴포넌트를 만들 때 사용
+    Babel : browser가 JSX를 이해할 수 있는 형태로 바꿔주는 컴파일러
+    !컴포넌트의 첫 글자는 대문자 , 소문자는 html 태그와 같은 이름을 가진 JSX
+    컴포넌트를 랜더링 해  사용하고자 싶을 땐 ₩컴포넌트를 함수형으로 만들어줘야 함
+
+
+-->
