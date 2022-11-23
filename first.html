@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "root"></div>
+</body>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script> 
+    <script>
+        const root = document.getElementById("root");
+        const span = React.createElement("h3", {onMouseEnter: ()=> console.log("i'm entered")} , "Hello, I'm a h3");
+        const btn = React.createElement("button", {onClick: () => console.log("i'm clicked")}, "Click");
+        const container = React.createElement("div" , null , [span, btn]);
+        ReactDOM.render(container, root);
+    </script>
+</html>
+
+<!-- 
+
+
+
+    진행되는 순서
+    React JS : JS -> HTML
+    바닐라 JS : HTML -> JS -> HTML 수정
+
+    element 생성에 어려운 방식 : reactJS의 본질을 이해하기 위함
+    const span = React.createElement("span" ) createElement의 매개변수는 html의 태그와 같아야함
+
+    react-dom : 라이브러리 또는 패키지로 React Element를 body에 넣을 수 있게 해줌
+    reactJS : 어플리케이션이 interactive 하게 해주는 라이브러리
+
+    => JS로 reactElement를 만들고 ReactDOM으로 HTML에 생성
+
+
+-->
