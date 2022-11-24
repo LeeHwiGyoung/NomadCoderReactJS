@@ -16,18 +16,19 @@
     const root = document.getElementById("root");
     //const Title = <h3 id = "title" onMouseEneter={()=> console.log( "mouse Enter")}>Hello I'm a title</h3>
     //const Btn = <button style={{backgroundColor : "tomato" }} onClick={()=> console.log("i'm clicked")}> clicked </button>
-    const Title = () => (
+    
+    const Title = () => ( //타이틀 컴포넌트
         <h3 id = "title" onMouseEnter={()=> console.log("mouse Enter")}>
             Hello I'm a title
         </h3>
     );
-    const Btn = () => (
+    const Btn = () => ( //버튼 컴포넌트 
         <button style={{backgroundColor : "tomato" }} onClick={()=> console.log("i'm clicked")}> 
             clicked 
         </button>
     )
-    const Container = () => (
-        <div>
+    const Container = () => ( //컨테이너 컴포넌트
+        <div> 
             <Title/>
             <Btn/>
         </div>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script> 
+<script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
+<script type = "text/babel">
+    const root = document.getElementById("root");
+    function App() {
+        let [counter, setCounter] = React.useState(0); //[counter , setCounter] : counter == 0 , setCounter는 counter 값을 바꿔주는 함수
+        const onClick = () => { //버튼이 클릭되면 onClick 함수가 호출되고 counter 값읇 바꿔주는 setCounter를 호출하게 되고 변한 값으로 다시 랜더링해줘 DOM상에서도 값이 변하게 됨
+            setCounter(counter + 1); //setCounter 함수를 사용하는 이유 => State 값이 변하면 랜더링을 해준다.
+            //console.log(counter)
+        };
+        return (
+            <div>
+                <h3>Total clicks: {counter}</h3>
+                <button onClick={onClick} >click</button>  
+            </div>
+        );
+    }
+    ReactDOM.render(<App />,root);
+    /*
+    바닐라 JS는 랜더링 시 업데이트가 되는 요소와 관련된 요소들이 재업데이트되나 ReactJS는 이전에 랜더링 된 컴포넌트와 현재 랜더링 되는 컴포넌트 중 바뀐 부분만 체크해서 업데이트 
+    => 재생성 되는 부분이 적어짐
+    state 미 사용 => 값을 변경해줄 때마다 랜더링을 해주는 것을 잊으면 값이 변하지 않음
+
+    let counter = 0;
+    const root = document.getElementById("root");
+    function countUp() {
+        counter = counter + 1;
+        render()
+    }
+    function render() {
+        ReactDOM.render(<Container/>, root);
+    }
+    const Container = () => (
+        <div>
+            <h3>Total Clicks : {counter}</h3>
+        <button style={{backgroundColor : "tomato" }} onClick={countUp}> 
+            clicked 
+        </button>
+        </div>
+    ) 
+    //const container = React.createElement("div" , null , [span, btn]);
+    render()
+
+    */
+</script>
+</html>
