@@ -13,13 +13,23 @@
 <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script> 
 <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
 <script type = "text/babel">
-    const root = document.getElementById("root");
+    const root = document.getElementById("root");  
     function App() {
         let [counter, setCounter] = React.useState(0); //[counter , setCounter] : counter == 0 , setCounter는 counter 값을 바꿔주는 함수
         const onClick = () => { //버튼이 클릭되면 onClick 함수가 호출되고 counter 값읇 바꿔주는 setCounter를 호출하게 되고 변한 값으로 다시 랜더링해줘 DOM상에서도 값이 변하게 됨
-            setCounter(counter + 1); //setCounter 함수를 사용하는 이유 => State 값이 변하면 랜더링을 해준다.
-            //console.log(counter)
+            //setCounter(counter + 1); setCounter 함수를 사용하는 이유 => State 값이 변하면 랜더링을 해준다.
+            //그러나 counter가 다른 곳에서 값이 변경된 경우등 에러가 발생할 가능성이 있다.
+            setCounter((current) => current + 1);
+            //setCounter(counter + 1);
+            /*위와 같은 방법과 같은 작업을 시행하나 (current) => current + 1 과 같이 argument를 주게되면 항상 새로운 state를 결과값으로 반환하게 됨
+            항상 state 값이 현재 값을 기반으로 나오게 됨
+            예를 들어 setCounter(counter + 1);이 연속으로 두 번 나올 때 함수가 호출 될 기준으로 현재 값을 지켜지지 않아
+            count가 1씩 늘어나지만  setCounter((current) => current + 1);이 연속으로 두 번 나올 경우 함수가 호출 되는 기준의 현재 값을
+            갖고 와 count가 2씩 늘어나게 된다.
+            */
+           
         };
+        
         return (
             <div>
                 <h3>Total clicks: {counter}</h3>
